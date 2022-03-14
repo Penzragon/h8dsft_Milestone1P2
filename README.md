@@ -6,6 +6,8 @@ Milestones ini dibuat guna mengevaluasi pembelajaran pada Hacktiv8 Data Science 
 
 By [Rifky Aliffa](https://github.com/Penzragon)
 
+![Image](https://atrium.ai/wp-content/uploads/2021/07/What-stops-customer-churn-Having-a-centralized-data-hub-does-and-heres-why.jpeg)
+
 ## Dataset
 
 Pada project ini dataset yang digunakan data customer dari sebuah perusahaan. Dataset ini berisi 7043 baris dengan 21 kolom yang diantaranya adalah customerID, gender, seniorCitizen, partner, dependents, dan masih banyak lagi. Dataset dapat dilihat di [Kaggle](https://www.kaggle.com/blastchar/telco-customer-churn).
