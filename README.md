@@ -38,7 +38,7 @@ Keterangan dari kolom dataset adalah:
 
 ## Objectives
 
-Milestones 1 ini dibuat guna mengevaluasi Pembelajaran Phase 2 :
+**Milestones 1** ini dibuat guna mengevaluasi Pembelajaran Phase 2 :
 
 - Mampu memahami konsep Artificial Neural Network.
 - Mampu mempersiapkan data untuk digunakan dalam model Artificial Neural Network.
