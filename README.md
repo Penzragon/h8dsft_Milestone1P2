@@ -10,7 +10,7 @@ By [Rifky Aliffa](https://github.com/Penzragon)
 
 ## Dataset
 
-Pada project ini dataset yang digunakan data customer dari sebuah perusahaan. Dataset ini berisi 7043 baris dengan 21 kolom yang diantaranya adalah customerID, gender, seniorCitizen, partner, dependents, dan masih banyak lagi. Dataset dapat dilihat di [Kaggle](https://www.kaggle.com/blastchar/telco-customer-churn).
+Pada project ini dataset yang digunakan data customer dari sebuah perusahaan telephone. Dataset ini berisi 7043 baris dengan 21 kolom yang diantaranya adalah customerID, gender, seniorCitizen, partner, dependents, dan masih banyak lagi. Dataset dapat dilihat di [Kaggle](https://www.kaggle.com/blastchar/telco-customer-churn).
 
 Keterangan dari kolom dataset adalah:
 
