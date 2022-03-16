@@ -115,33 +115,49 @@ def app():
     with col17:
         totalCharges = st.number_input("Total Charges 💰", min_value=0)
 
-    predict = st.button("Predict")
+    st.markdown("<hr>", unsafe_allow_html=True)
+
+    data = {
+        "gender": gender,
+        "SeniorCitizen": seniorCitizen,
+        "Partner": partner,
+        "Dependents": dependent,
+        "tenure": tenure,
+        "PhoneService": phoneService,
+        "MultipleLines": multipleLines,
+        "InternetService": internetService,
+        "OnlineSecurity": onlineSecurity,
+        "OnlineBackup": onlineBackup,
+        "DeviceProtection": deviceProtection,
+        "TechSupport": techSupport,
+        "StreamingTV": streamingTV,
+        "StreamingMovies": streamingMovies,
+        "Contract": contract,
+        "PaperlessBilling": paperlessBilling,
+        "PaymentMethod": paymentMethod,
+        "MonthlyCharges": monthlyCharges,
+        "TotalCharges": totalCharges,
+    }
+
+    col18, col19, col20 = st.columns([1.7, 1, 1])
+    with col19:
+        predict = st.button("Predict 🧠")
+
     if predict:
-        data = {
-            "gender": gender,
-            "SeniorCitizen": seniorCitizen,
-            "Partner": partner,
-            "Dependents": dependent,
-            "tenure": tenure,
-            "PhoneService": phoneService,
-            "MultipleLines": multipleLines,
-            "InternetService": internetService,
-            "OnlineSecurity": onlineSecurity,
-            "OnlineBackup": onlineBackup,
-            "DeviceProtection": deviceProtection,
-            "TechSupport": techSupport,
-            "StreamingTV": streamingTV,
-            "StreamingMovies": streamingMovies,
-            "Contract": contract,
-            "PaperlessBilling": paperlessBilling,
-            "PaymentMethod": paymentMethod,
-            "MonthlyCharges": monthlyCharges,
-            "TotalCharges": totalCharges,
-        }
-        data = pd.DataFrame(data, index=[0])
-        data = preprocessor.transform(data)
-        prediction = model.predict(data).round()
+
+        data_df = pd.DataFrame(data, index=[0])
+
+        data_df = preprocessor.transform(data_df)
+
+        prediction = model.predict(data_df).round()
+
         if prediction == 1:
-            st.write("The customer will leave the company")
+            st.markdown(
+                '<h2 style="text-align: center">🚨 The customer will <span style="color: red">leave</span> the company! 🚨</h2>',
+                unsafe_allow_html=True,
+            )
         else:
-            st.write("The customer will stay in the company")
+            st.markdown(
+                '<h2 style="text-align: center">🎊 The customer will <span style="color: green">stay</span> in the company! 🎊</h2>',
+                unsafe_allow_html=True,
+            )
