@@ -17,7 +17,7 @@ st.set_page_config(
 PAGES = {"Home": home, "Prediction": prediction}
 
 st.sidebar.title("Navigation")
-page = st.sidebar.radio("Choose a page", list(PAGES.keys()))
+page = st.sidebar.selectbox("Choose a page", list(PAGES.keys()))
 
 page = PAGES[page]
 page.app()
