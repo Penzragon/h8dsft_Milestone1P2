@@ -5,56 +5,82 @@ import pickle
 
 
 def app():
-    st.title("Churn Prediction")
-
     model = tf.keras.models.load_model("model.h5")
     with open("preprocessor.pkl", "rb") as f:
         preprocessor = pickle.load(f)
 
-    st.write("Basic Data")
-    col1, col2, col3, col4 = st.columns(4)
-    with col1:
-        gender = st.selectbox("Customer Gender", ["Male", "Female"])
-    with col2:
-        seniorCitizen = st.selectbox("Senior Citizen", ["Yes", "No"])
-    with col3:
-        partner = st.selectbox("Do the customer has partner?", ["Yes", "No"])
-    with col4:
-        dependent = st.selectbox("Does the customer has dependent?", ["Yes", "No"])
-    tenure = st.number_input(
-        "How many months the customer has been a customer?", min_value=1
+    st.markdown(
+        "<h1 style='text-align: center'>☎️ Telco Customer Churn Prediction ☎️</h1>",
+        unsafe_allow_html=True,
+    )
+    st.markdown(
+        '<p style="text-align: center">This simple app is a project about customer churn prediction using <strong>Artificial Neural Network</strong>🤖.<br><br></p>',
+        unsafe_allow_html=True,
     )
 
-    st.write("Phone Service")
+    st.markdown(
+        '<hr><h3 style="text-align: center">Basic Customer Information</h3>',
+        unsafe_allow_html=True,
+    )
+    col1, col2, col3, col4 = st.columns(4)
+    with col1:
+        gender = st.selectbox("👩 Customer Gender 👨", ["Male", "Female"])
+    with col2:
+        seniorCitizen = st.selectbox(
+            "👵 Is the customer a senior citizen? 👴", ["No", "Yes"]
+        )
+    with col3:
+        partner = st.selectbox("🧍 Do the customer has partner? 👫", ["No", "Yes"])
+    with col4:
+        dependent = st.selectbox(
+            " 🙍‍♂️Does the customer has dependent? 👨‍👩‍👧‍👦", ["No", "Yes"]
+        )
+    tenure = st.number_input(
+        "How many months the customer has been a customer? 📅", min_value=1
+    )
+
+    st.markdown(
+        '<hr><h3 style="text-align: center">Phone Service</h3>', unsafe_allow_html=True
+    )
     col5, col6 = st.columns(2)
     with col5:
-        phoneService = st.selectbox("Phone Service", ["No", "Yes"])
+        phoneService = st.selectbox("Phone Service 📞", ["No", "Yes"])
     if phoneService == "Yes":
         with col6:
-            multipleLines = st.selectbox("Multiple Lines", ["No", "Yes"])
+            multipleLines = st.selectbox("Multiple Lines 📠", ["No", "Yes"])
     else:
         multipleLines = "No phone service"
 
-    st.write("Internet Service")
+    st.markdown(
+        '<hr><h3 style="text-align: center">Internet Service</h3>',
+        unsafe_allow_html=True,
+    )
     internetService = st.selectbox(
-        "Internet Service Provider", ["No", "DSL", "Fiber optic"]
+        "Internet Service Provider 🌐 ", ["No", "DSL", "Fiber optic"]
     )
     if internetService != "No":
+        st.markdown(
+            '<hr><h4 style="text-align: center">Protection Service</h4>',
+            unsafe_allow_html=True,
+        )
         col7, col8, col9, col10 = st.columns(4)
         with col7:
-            onlineSecurity = st.selectbox("Online Security", ["Yes", "No"])
+            onlineSecurity = st.selectbox("Online Security 👮", ["No", "Yes"])
         with col8:
-            onlineBackup = st.selectbox("Online Backup", ["Yes", "No"])
+            onlineBackup = st.selectbox("Online Backup 🗄️", ["No", "Yes"])
         with col9:
-            deviceProtection = st.selectbox("Device Protection", ["Yes", "No"])
+            deviceProtection = st.selectbox("Device Protection 📱", ["No", "Yes"])
         with col10:
-            techSupport = st.selectbox("Tech Support", ["Yes", "No"])
-        st.write("Streaming Service")
+            techSupport = st.selectbox("Tech Support 👨‍🔧", ["No", "Yes"])
+        st.markdown(
+            '<hr><h4 style="text-align: center">Streaming Service</h4>',
+            unsafe_allow_html=True,
+        )
         col11, col12 = st.columns(2)
         with col11:
-            streamingTV = st.selectbox("Streaming TV", ["Yes", "No"])
+            streamingTV = st.selectbox("Streaming TV 📺", ["No", "Yes"])
         with col12:
-            streamingMovies = st.selectbox("Streaming Movies", ["Yes", "No"])
+            streamingMovies = st.selectbox("Streaming Movies 🍿", ["No", "Yes"])
     else:
         onlineSecurity = (
             onlineBackup
@@ -62,15 +88,20 @@ def app():
             deviceProtection
         ) = techSupport = streamingTV = streamingMovies = "No internet service"
 
-    st.write("Contract")
+    st.markdown(
+        '<hr><h3 style="text-align: center">Billing Information</h3>',
+        unsafe_allow_html=True,
+    )
     col13, col14, col15 = st.columns(3)
     with col13:
-        contract = st.selectbox("Contract", ["Month-to-month", "One year", "Two year"])
+        contract = st.selectbox(
+            "Contract 📜", ["Month-to-month", "One year", "Two year"]
+        )
     with col14:
-        paperlessBilling = st.selectbox("Paperless Billing", ["Yes", "No"])
+        paperlessBilling = st.selectbox("Paperless Billing 📄", ["Yes", "No"])
     with col15:
         paymentMethod = st.selectbox(
-            "Payment Method",
+            "Payment Method 💳",
             [
                 "Electronic check",
                 "Mailed check",
@@ -78,13 +109,11 @@ def app():
                 "Credit card (automatic)",
             ],
         )
-
-    st.write("Charges")
     col16, col17 = st.columns(2)
     with col16:
-        monthlyCharges = st.number_input("Monthly Charges", min_value=20)
+        monthlyCharges = st.number_input("Monthly Charges 💵", min_value=20)
     with col17:
-        totalCharges = st.number_input("Total Charges", min_value=0)
+        totalCharges = st.number_input("Total Charges 💰", min_value=0)
 
     predict = st.button("Predict")
     if predict:
