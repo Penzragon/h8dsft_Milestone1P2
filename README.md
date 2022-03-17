@@ -8,6 +8,10 @@ By [Rifky Aliffa](https://github.com/Penzragon)
 
 ![Image](https://atrium.ai/wp-content/uploads/2021/07/What-stops-customer-churn-Having-a-centralized-data-hub-does-and-heres-why.jpeg)
 
+## Dashboard
+
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://rifkyaliffa-churn-prediction.herokuapp.com/)
+
 ## Dataset
 
 Pada project ini dataset yang digunakan data customer dari sebuah perusahaan telephone. Dataset ini berisi 7043 baris dengan 21 kolom yang diantaranya adalah customerID, gender, seniorCitizen, partner, dependents, dan masih banyak lagi. Dataset dapat dilihat di [Kaggle](https://www.kaggle.com/blastchar/telco-customer-churn).
