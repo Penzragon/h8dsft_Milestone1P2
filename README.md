@@ -14,6 +14,12 @@ Untuk melihat halaman dashboard dari project, dapat ditekan pada tombol di bawah
 
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://rifkyaliffa-churn-prediction.herokuapp.com/)
 
+Atau
+
+```
+https://rifkyaliffa-churn-prediction.herokuapp.com
+```
+
 ## Dataset
 
 Pada project ini dataset yang digunakan data customer dari sebuah perusahaan telephone. Dataset ini berisi 7043 baris dengan 21 kolom yang diantaranya adalah customerID, gender, seniorCitizen, partner, dependents, dan masih banyak lagi. Dataset dapat dilihat di [Kaggle](https://www.kaggle.com/blastchar/telco-customer-churn).
