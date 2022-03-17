@@ -10,6 +10,8 @@ By [Rifky Aliffa](https://github.com/Penzragon)
 
 ## Dashboard
 
+Untuk melihat halaman dashboard dari project, dapat ditekan pada tombol di bawah ini.
+
 [![Deploy to Heroku](https://www.herokucdn.com/deploy/button.svg)](https://rifkyaliffa-churn-prediction.herokuapp.com/)
 
 ## Dataset
