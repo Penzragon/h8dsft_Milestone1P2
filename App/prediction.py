@@ -18,6 +18,7 @@ def app():
         unsafe_allow_html=True,
     )
 
+    # CUSTOMER BASIC INFORMATION SECTION
     st.markdown(
         '<hr><h3 style="text-align: center">Basic Customer Information</h3>',
         unsafe_allow_html=True,
@@ -39,6 +40,7 @@ def app():
         "How many months the customer has been a customer? 📅", min_value=1
     )
 
+    # CUSTOMER PHONE SERVICE SECTION
     st.markdown(
         '<hr><h3 style="text-align: center">Phone Service</h3>', unsafe_allow_html=True
     )
@@ -51,6 +53,7 @@ def app():
     else:
         multipleLines = "No phone service"
 
+    # CUSTOMER INTERNET SERVICE SECTION
     st.markdown(
         '<hr><h3 style="text-align: center">Internet Service</h3>',
         unsafe_allow_html=True,
@@ -58,6 +61,8 @@ def app():
     internetService = st.selectbox(
         "Internet Service Provider 🌐 ", ["No", "DSL", "Fiber optic"]
     )
+
+    # CUSTOMER ADDITIONAL SERVICE SECTION
     if internetService != "No":
         st.markdown(
             '<hr><h4 style="text-align: center">Protection Service</h4>',
@@ -88,6 +93,7 @@ def app():
             deviceProtection
         ) = techSupport = streamingTV = streamingMovies = "No internet service"
 
+    # CUSTOMER BILLING INFORMATION SECTION
     st.markdown(
         '<hr><h3 style="text-align: center">Billing Information</h3>',
         unsafe_allow_html=True,
@@ -143,21 +149,27 @@ def app():
     with col19:
         predict = st.button("Predict 🧠")
 
+    # PREDICTION SECTION
     if predict:
+        data_df = pd.DataFrame(data, index=[0])  # convert dict to dataframe
 
-        data_df = pd.DataFrame(data, index=[0])
+        data_df = preprocessor.transform(data_df)  # preprocess data
 
-        data_df = preprocessor.transform(data_df)
-
-        prediction = model.predict(data_df).round()
+        prediction = model.predict(data_df).round()  # predict
 
         if prediction == 1:
+            # if customer is likely to churn
             st.markdown(
                 '<h2 style="text-align: center">🚨 The customer will <span style="color: red">leave</span> the company! 🚨</h2>',
                 unsafe_allow_html=True,
             )
         else:
+            # if customer is likely to stay
             st.markdown(
                 '<h2 style="text-align: center">🎊 The customer will <span style="color: green">stay</span> in the company! 🎊</h2>',
                 unsafe_allow_html=True,
             )
+
+    # note:
+    # 1 is likely to churn
+    # 0 is likely to stay
