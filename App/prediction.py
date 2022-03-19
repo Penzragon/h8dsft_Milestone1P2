@@ -9,6 +9,7 @@ def app():
     with open("preprocessor.pkl", "rb") as f:
         preprocessor = pickle.load(f)
 
+    # HEADER SECTION
     st.markdown(
         "<h1 style='text-align: center'>☎️ Telco Customer Churn Prediction ☎️</h1>",
         unsafe_allow_html=True,
@@ -123,6 +124,7 @@ def app():
 
     st.markdown("<hr>", unsafe_allow_html=True)
 
+    # Create dictionary with all customer information
     data = {
         "gender": gender,
         "SeniorCitizen": seniorCitizen,
